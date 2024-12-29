@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'game_sessions/index'
+  resources :questions, only: [:index, :create, :update, :destroy]
+  resources :game_sessions, only: [:index, :create, :update]
+  post 'game_sessions/submit_answer', to: 'game_sessions#submit_answer'
+  root 'game_sessions#index'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
