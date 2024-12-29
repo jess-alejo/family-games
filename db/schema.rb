@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_29_154834) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_29_182507) do
   create_table "game_sessions", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "score"
@@ -21,10 +21,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_29_154834) do
 
   create_table "questions", force: :cascade do |t|
     t.string "content"
-    t.string "answer"
+    t.string "correct_answer"
     t.string "category"
+    t.text "choices"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "answered", default: false
   end
 
   create_table "users", force: :cascade do |t|

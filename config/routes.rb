@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   get 'game_sessions/index'
   resources :questions, only: [:index, :create, :update, :destroy]
   resources :game_sessions, only: [:index, :create, :update]
-  post 'game_sessions/submit_answer', to: 'game_sessions#submit_answer'
-  root 'game_sessions#index'
+  post 'game_sessions/check_answer', to: 'game_sessions#check_answer'
+  root 'game_sessions#home'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

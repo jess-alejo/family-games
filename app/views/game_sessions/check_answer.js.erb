@@ -1,0 +1,9 @@
+const feedbackElement = document.querySelector("#feedback");
+const newContent = `
+  <p class="${<%= @correct %> ? 'text-success' : 'text-danger'}">
+    <%= @correct ? 'Tama ang sagot! 🎉' : 'Mali ang sagot. Ang tamang sagot ay: ' + @question.correct_answer %>
+  </p>
+  <a href="/" class="btn btn-secondary">Subukan ang Isa Pang Tanong</a>
+`;
+
+feedbackElement.innerHTML = newContent;
