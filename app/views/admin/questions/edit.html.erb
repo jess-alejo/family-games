@@ -1,0 +1,11 @@
+<div class="row my-5">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <h1>Edit Question</h1>
+    <%= link_to "Back", admin_question_path(@question) %>
+    <div class="my-4">
+      <%= render "form", question: @question %>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+</div>

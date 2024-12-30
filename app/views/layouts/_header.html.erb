@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-lg fixed-top bg-primary" data-bs-theme="dark">
+<div class="navbar navbar-expand-lg fixed-top bg-primary" data-bs-theme="dark" data-controller="theme">
   <div class="container">
     <%= link_to "Akong-Lumeng Games", root_path, class: "navbar-brand" %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,6 +49,15 @@
               <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="true">
                 <i class="bi bi-moon-stars-fill"></i><span class="ms-2">Dark</span>
               </button>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <%= link_to admin_questions_path, class: "dropdown-item d-flex align-items-center" do %>
+                <i class="bi bi-shield"></i>
+                <span class="ms-2">Admin</span>
+              <% end %>
             </li>
           </ul>
         </li>

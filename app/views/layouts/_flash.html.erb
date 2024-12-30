@@ -1,0 +1,13 @@
+<% flash.each do |key, message| %>
+  <% if key == "notice" %>
+    <div class="alert alert-dismissible alert-success">
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      <%= message %>
+    </div>
+  <% elsif key == "alert" %>
+  <div class="alert alert-dismissible alert-danger">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <%= message %>
+  </div>
+  <% end %>
+<% end %>

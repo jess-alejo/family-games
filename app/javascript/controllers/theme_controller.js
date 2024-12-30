@@ -3,6 +3,7 @@ import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
   connect() {
+    console.log("theme")
     document.querySelectorAll("[data-bs-theme-value]").forEach((value) => {
       value.addEventListener("click", () => {
         const theme = value.getAttribute("data-bs-theme-value");

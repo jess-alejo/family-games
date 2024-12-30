@@ -1,0 +1,26 @@
+<table class="table table-hover" data-controller="datatable">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Category</th>
+      <th scope="col">Content</th>
+      <th scope="col">Correct Answer</th>
+      <th data-orderable="false"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% question.each do |question| %>
+      <tr>
+        <th scope="row"><%= link_to question.id, admin_question_path(question) %></th>
+        <td><%= question.category %></td>
+        <td><%= question.content %></td>
+        <td><%= question.correct_answer %></td>
+        <td>
+          <%= link_to edit_admin_question_path(question) do %>
+            <i class="bi bi-pencil-square"></i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

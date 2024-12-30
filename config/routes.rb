@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  get 'game_sessions/index'
-  resources :questions, only: [:index, :create, :update, :destroy]
+  namespace :admin do
+    resources :questions
+  end
+
   resources :game_sessions, only: [:index, :create, :update]
   post 'game_sessions/check_answer', to: 'game_sessions#check_answer'
   root 'game_sessions#home'

@@ -1,0 +1,36 @@
+<%= form_with model: question, url: [:admin, question], local: true do |form| %>
+  <% if question.errors.any? %>
+    <div id="error_explanation mb-4">
+      <h2><%= pluralize(question.errors.count, "error") %> prohibited this question from being saved:</h2>
+      <ul>
+        <% question.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field mb-4">
+    <%= form.label :category, class: "form-label" %>
+    <%= form.select :category, ["kids", "teens", "adult"], { prompt: "Select one" }, class: "form-select" %>
+  </div>
+
+  <div class="field mb-4">
+    <%= form.label :content, "Question", class: "form-label" %>
+    <%= form.text_field :content, required: true, placeholder: "Enter the question", class: "form-control" %>
+  </div>
+
+  <div class="field mb-4">
+    <%= form.label :choices, class: "form-label" %>
+    <%= form.text_area :choices, rows: 5, required: true, placeholder: "Enter 4 choices (comma-separated)", class: "form-control" %>
+  </div>
+
+  <div class="field mb-4">
+    <%= form.label :correct_answer, class: "form-label" %>
+    <%= form.text_field :correct_answer, placeholder: "Correct answer (one from the choices)", class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "btn btn-lg btn-primary" %>
+  </div>
+<% end %>

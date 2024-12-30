@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import DatatableController from "./datatable_controller"
+application.register("datatable", DatatableController)
+
 import FormController from "./form_controller"
 application.register("form", FormController)
 

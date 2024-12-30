@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en">
   <head>
     <title>Akong-Lumeng Games</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="turbo-prefetch" content="false">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,6 +14,7 @@
   <body>
     <%= render "layouts/header" %>
     <div class="container">
+      <%= render "layouts/flash" %>
       <%= yield %>
     </div>
   </body>
