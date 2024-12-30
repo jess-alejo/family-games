@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "question" do %>
+  <%= render partial: "answer", locals: { question: @question, correct: @correct, selected_answer: @selected_answer } %>
+<% end %>

@@ -1,16 +1,19 @@
 <div class="card my-3">
-  <%# <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="300" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
-    <rect width="100%" height="100%" fill="#868e96"></rect>
-    <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-  </svg> %>
-  <%= image_tag("#{question.category}.png", height: 300, class: "object-fit-contain p-4") %>
+  <figure class="bg-white text-center">
+    <%= image_tag("#{correct ? "correct" : "wrong"}.svg", height: 400, class: "object-fit-contain p-4") %>
+  </figure>
   <div class="card-body p-4">
     <div class="row">
-      <% JSON.parse(question.choices).each do |choice| %>
+      <% JSON.parse(question.choices).each_with_index do |choice, index| %>
         <div class="col-md-6">
-          <%= button_tag choice, name: :answer, class: "btn btn-lg btn-info mb-4 w-100" %>
+          <%# <%= button_tag choice, name: :answer, class: "btn btn-lg btn-#{selected_answer_theme(choice, selected_answer, question.correct_answer)} mb-4 w-100" %>
+          <%= radio_button_tag :answer, choice, false, id: "choice_#{choice.parameterize.underscore}", class: "btn-check" %>
+          <%= label_tag "choice_#{choice.parameterize.underscore}", "#{%w[A C B D][index]}. #{choice}", class: "btn btn-lg btn-#{selected_answer_theme(choice, selected_answer, question.correct_answer)} mb-4 w-100" %>
         </div>
       <% end %>
+    </div>
+    <div class="d-block text-center">
+      <%= link_to "Next Question", game_sessions_path(category: question.category), class: "btn btn-primary btn-lg mt-4 px-5 mx-auto" %>
     </div>
   </div>
 </div>
